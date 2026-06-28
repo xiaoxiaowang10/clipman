@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Clipman</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>📋 Clipman <span id="count"></span></h1>
+
+  <div class="toolbar">
+    <div class="search-wrap">
+      <input id="q" placeholder="搜索..." autofocus>
+    </div>
+    <button class="btn" id="btnSelect" onclick="toggleSelect()">选择</button>
+    <button class="btn" id="btnSettings" onclick="toggleSettings()">⚙️</button>
+  </div>
+
+  <div class="settings" id="settings">
+    <button class="btn btn-sm" onclick="exportData()">导出</button>
+    <button class="btn btn-sm" onclick="document.getElementById('importInput').click()">导入</button>
+    <input type="file" id="importInput" accept=".jl,.jsonl,.txt" style="display:none" onchange="importData(this)">
+    <button class="btn btn-sm" id="btnAutoStart" onclick="toggleAutoStart()">开机启动</button>
+    <button class="btn btn-sm" id="btnTheme" onclick="toggleTheme()">🌙</button>
+    <button class="btn btn-sm btn-danger" onclick="if(confirm('清空全部记录？'))clearAll()">清空</button>
+  </div>
+
+  <div class="date-nav" id="dateNav"></div>
+
+  <div class="batch-bar" id="batchBar">
+    <button class="btn btn-sm" id="btnAll" onclick="selectAll()">全选</button>
+    <span id="selCount">已选 0 项</span>
+    <button class="btn btn-sm btn-danger" onclick="delSelected()">删除选中</button>
+  </div>
+
+  <div class="stats" id="stats"></div>
+  <div class="list" id="list"></div>
+  <div class="toast" id="toast">已复制到剪贴板</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

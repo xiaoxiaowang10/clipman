@@ -1,0 +1,7 @@
+# Runtime data
+clipman.jl
+
+# Test binaries
+*.test
+*.test.exe
+*.exe
